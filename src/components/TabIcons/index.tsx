@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import ReactDOM from 'react-dom'
 import { View, StyleSheet } from 'react-native'
 import { Path, Svg, Circle, Ellipse } from 'react-native-svg'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useNavigationState, useIsFocused, useRoute } from '@react-navigation/native'
 import { RectButton,  } from 'react-native-gesture-handler'
 
 
@@ -14,13 +15,34 @@ const colors = {
 
 const TabIcons = () => {
 
-  const navigation = useNavigation()
   
+  
+  const [atual, setAtual] = useState<string>('')
+  
+  // useEffect(() => {
+  //   const screenIndex = useNavigationState(state => state.index);
+    
+  //   setAtual(screenIndex)
+    
+  // }, [])
+  
+  const navigation = useNavigation()
+
+  const route = useRoute()
+
+  useEffect(() => {
+
+    setAtual(route.name)
+    console.log(atual)
+  
+  } ,[atual])
+
   const [infarto, setInfarto] = useState(true)
   const [alimentacao, setAlimentacao] = useState(false)
   const [imc, setImc] = useState(false)
   const [exercicio, setExercicio] = useState(false)
   const [tratamento, setTratamento] = useState(false)
+  
 
   function handleTouchInfarto() {
     if(!infarto){
@@ -87,6 +109,7 @@ const TabIcons = () => {
 
   
   return (
+
     <> 
       <View style={styles.tabContainer}>
         <RectButton activeOpacity={0} rippleColor={'rgba(0,0,0,0)'} onPress={handleTouchInfarto}>

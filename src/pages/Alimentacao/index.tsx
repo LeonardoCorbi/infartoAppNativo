@@ -1,9 +1,15 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
+import TabIcons from '../../components/TabIcons'
 
 const Alimentacao = () => {
   return (
-    <View></View>
+    <>
+      <ScrollView>
+        
+      </ScrollView>
+      <TabIcons />
+    </>
   )
 }
 
