@@ -4,6 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Infarto from './pages/Infarto'
 import Alimentacao from './pages/Alimentacao'
+import Imc from './pages/Imc'
+import Exercicio from './pages/Exercicio'
+import Tratamento from './pages/Tratamento'
 
 const AppStack = createStackNavigator()
 
@@ -20,6 +23,9 @@ const Routes = () => {
       >
         <AppStack.Screen name="Infarto" component={Infarto} />
         <AppStack.Screen name="Alimentacao" component={Alimentacao} />
+        <AppStack.Screen name="Imc" component={Imc} />
+        <AppStack.Screen name="Exercicio" component={Exercicio} />
+        <AppStack.Screen name="Tratamento" component={Tratamento} />
       </AppStack.Navigator>
     </NavigationContainer>
   )

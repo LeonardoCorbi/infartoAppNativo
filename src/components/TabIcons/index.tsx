@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom'
 import { View, StyleSheet } from 'react-native'
 import { Path, Svg, Circle, Ellipse } from 'react-native-svg'
 import { useNavigation, useNavigationState, useIsFocused, useRoute } from '@react-navigation/native'
-import { RectButton,  } from 'react-native-gesture-handler'
+import { RectButton } from 'react-native-gesture-handler'
 
 
 const colors = {
@@ -30,19 +29,24 @@ const TabIcons = () => {
 
   const route = useRoute()
 
+  const [infarto, setInfarto] = useState(null)
+  const [alimentacao, setAlimentacao] = useState(null)
+  const [imc, setImc] = useState(null)
+  const [exercicio, setExercicio] = useState(null)
+  const [tratamento, setTratamento] = useState(null)
+  
   useEffect(() => {
 
     setAtual(route.name)
-    console.log(atual)
+    console.log(`Página > ${atual}`)
   
-  } ,[atual])
+  } ,[])
+  useEffect(() => {
 
-  const [infarto, setInfarto] = useState(true)
-  const [alimentacao, setAlimentacao] = useState(false)
-  const [imc, setImc] = useState(false)
-  const [exercicio, setExercicio] = useState(false)
-  const [tratamento, setTratamento] = useState(false)
+    setAtual(route.name)
+    console.log(`Página > ${atual}`)
   
+  } ,[infarto, alimentacao, imc, exercicio, tratamento])
 
   function handleTouchInfarto() {
     if(!infarto){
@@ -53,6 +57,7 @@ const TabIcons = () => {
       setImc(false)
       setExercicio(false)
       setTratamento(false)
+      navigation.navigate('Infarto')
       console.log(`Touch => Infarto = ${acao}`)
     }
   }
