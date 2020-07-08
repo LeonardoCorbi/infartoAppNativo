@@ -51,12 +51,12 @@ const TabIcons = () => {
   function handleTouchInfarto() {
     if(!infarto){
       let acao = infarto
-      acao = !acao
-      setInfarto(acao)
-      setAlimentacao(false)
-      setImc(false)
-      setExercicio(false)
-      setTratamento(false)
+      // acao = !acao
+      // setInfarto(acao)
+      // setAlimentacao(false)
+      // setImc(false)
+      // setExercicio(false)
+      // setTratamento(false)
       navigation.navigate('Infarto')
       console.log(`Touch => Infarto = ${acao}`)
     }
@@ -64,12 +64,12 @@ const TabIcons = () => {
   function handleTouchAlimentacao() {
     if(!alimentacao){
       let acao = alimentacao
-      acao = !acao
-      setInfarto(false)
-      setAlimentacao(acao)
-      setImc(false)
-      setExercicio(false)
-      setTratamento(false)
+      // acao = !acao
+      // setInfarto(false)
+      // setAlimentacao(acao)
+      // setImc(false)
+      // setExercicio(false)
+      // setTratamento(false)
       navigation.navigate('Alimentacao')
 
       console.log(`Touch => Alimentacao = ${acao}`)
@@ -78,36 +78,36 @@ const TabIcons = () => {
   function handleTouchImc() {
     if(!imc){
       let acao = imc
-      acao = !acao
-      setInfarto(false)
-      setAlimentacao(false)
-      setImc(acao)
-      setExercicio(false)
-      setTratamento(false)
+      // acao = !acao
+      // setInfarto(false)
+      // setAlimentacao(false)
+      // setImc(acao)
+      // setExercicio(false)
+      // setTratamento(false)
       console.log(`Touch => Imc = ${acao}`)
     }
   }
   function handleTouchExercicio() {
     if(!exercicio){
       let acao = exercicio
-      acao = !acao
-      setInfarto(false)
-      setAlimentacao(false)
-      setImc(false)
-      setExercicio(acao)
-      setTratamento(false)
+      // acao = !acao
+      // setInfarto(false)
+      // setAlimentacao(false)
+      // setImc(false)
+      // setExercicio(acao)
+      // setTratamento(false)
       console.log(`Touch => Exercicio = ${acao}`)
     }
   }
   function handleTouchTratamento() {
     if(!tratamento){
       let acao = tratamento
-      acao = !acao
-      setInfarto(false)
-      setAlimentacao(false)
-      setImc(false)
-      setExercicio(false)
-      setTratamento(acao)
+      // acao = !acao
+      // setInfarto(false)
+      // setAlimentacao(false)
+      // setImc(false)
+      // setExercicio(false)
+      // setTratamento(acao)
       console.log(`Touch => Tratamento = ${acao}`)
     }
   }
