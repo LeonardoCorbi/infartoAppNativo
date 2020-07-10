@@ -2,7 +2,10 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
+// INFARTO
 import Infarto from './pages/Infarto'
+import art001_Infarto from './pages/Artigos/Atigo_001'
+
 import Alimentacao from './pages/Alimentacao'
 import Imc from './pages/Imc'
 import Exercicio from './pages/Exercicio'
@@ -21,7 +24,9 @@ const Routes = () => {
           }
         }}
       >
+        <AppStack.Screen name="art001_Infarto" component={art001_Infarto} />
         <AppStack.Screen name="Infarto" component={Infarto} />
+        
         <AppStack.Screen name="Alimentacao" component={Alimentacao} />
         <AppStack.Screen name="Imc" component={Imc} />
         <AppStack.Screen name="Exercicio" component={Exercicio} />

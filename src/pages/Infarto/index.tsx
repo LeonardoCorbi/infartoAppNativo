@@ -48,12 +48,12 @@ const Infarto = () => {
               activeOpacity={0} 
               rippleColor={'rgba(0,0,0,0)'} 
               style={styles.rectBtn} 
-              onPress={() => {}}
+              onPress={() => navigation.navigate('art001_Infarto')}
             >
               <View style={styles.articleContainer}>
 
                 <View style={styles.imageContainer}>  
-                  <Image style={styles.image} source={require('../../assets/artigo1.jpg')} />
+                  <Image style={styles.image} source={require('../../assets/images/artigo1.jpg')} />
                 </View>  
 
                 <View style={styles.contentContainer}>
