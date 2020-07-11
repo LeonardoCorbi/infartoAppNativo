@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ScrollView, Image, StyleSheet } from 'react-native'
+import { View, ScrollView, Image, StyleSheet, Text } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler'
 import BackButton from '../../../assets/images/arrow-left-circle.svg'
 
@@ -15,12 +15,16 @@ const colors = {
 const Artigo_001 = () => {
   return (
     <>
+      <View style={style.statusViewer} />
       <ScrollView>
         <View style={style.headerContainer}>
-          <RectButton onPress={() => {}}>
-            <BackButton width="32" height="32" style={style.backButton}/>
-          </RectButton>
+          <BackButton onPress={() => {console.log('ok')}} width="32" height="32" style={style.backButton}/>
           <Image style={style.imageBG} source={Img} />
+        </View>
+        <View style={style.contentContainer}>
+          <Text style={style.titleArticle}>
+            Quando é indicado fazer uma cirurgia
+          </Text>
         </View>
       </ScrollView>
     </>
@@ -28,17 +32,52 @@ const Artigo_001 = () => {
 }
 
 const style = StyleSheet.create({
+  statusViewer: {
+    position: 'absolute',
+    top: 0,
+    height: 22,
+    width: '100%',
+    backgroundColor: colors.shadow,
+    zIndex: 100,
+  },
   headerContainer: {
     height: 264,
-    position: 'relative',
   },
   backButton: {
+    position: 'absolute',
     width: 32,
     height: 32,
+    top: 28,
+    left: 24,
+    zIndex: 20,
   },
   imageBG: {
+    position: 'absolute',
     width: '100%',
-    height: 264
+    height: 264,
+    zIndex: 10,
+  },
+  contentContainer: {
+    width: '100%',
+    height: 300,
+    
+    position: 'absolute',
+    top: 182,
+
+    borderTopLeftRadius: 80,
+
+    backgroundColor: 'red',
+
+    zIndex: 40,
+
+    paddingTop: 30,
+    paddingHorizontal: 24,
+  },
+  titleArticle: {
+    fontFamily: 'NoirPro_Medium',
+    color: colors.primary,
+    fontSize: 24,
+    lineHeight: 34,
   },
 })
 
