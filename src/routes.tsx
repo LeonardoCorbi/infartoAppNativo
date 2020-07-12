@@ -17,15 +17,9 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <AppStack.Navigator 
-        headerMode="none"
-        screenOptions={{
-          cardStyle: {
-            backgroundColor: 'rgba(0,0,0,0)'
-          }
-        }}
-      >
-        <AppStack.Screen name="art001_Infarto" component={art001_Infarto} />
+        headerMode="none">
         <AppStack.Screen name="Infarto" component={Infarto} />
+        <AppStack.Screen name="art001_Infarto" component={art001_Infarto} />
         
         <AppStack.Screen name="Alimentacao" component={Alimentacao} />
         <AppStack.Screen name="Imc" component={Imc} />

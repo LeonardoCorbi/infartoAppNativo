@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Path, Svg, Circle, Ellipse } from 'react-native-svg'
-import { useNavigation, useNavigationState, useIsFocused, useRoute } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import { RectButton } from 'react-native-gesture-handler'
 
 
@@ -12,104 +12,31 @@ const colors = {
   red: '#EA3D65'
 }
 
-const TabIcons = () => {
-
-  
-  
-  const [atual, setAtual] = useState<string>('')
-  
-  // useEffect(() => {
-  //   const screenIndex = useNavigationState(state => state.index);
-    
-  //   setAtual(screenIndex)
-    
-  // }, [])
-  
+export interface Props {
+  intarto: boolean
+  alimentacao: boolean
+  imc: boolean
+  exercicio: boolean
+  tratamento: boolean
+}
+const TabIcons: React.FC<Props> = (
+  infarto: boolean,
+  alimentacao: boolean,
+  imc: boolean,
+  exercicio: boolean,
+  tratamento: boolean,
+) => {  
   const navigation = useNavigation()
 
-  const route = useRoute()
-
-  const [infarto, setInfarto] = useState(null)
-  const [alimentacao, setAlimentacao] = useState(null)
-  const [imc, setImc] = useState(null)
-  const [exercicio, setExercicio] = useState(null)
-  const [tratamento, setTratamento] = useState(null)
-  
-  useEffect(() => {
-
-    setAtual(route.name)
-    console.log(`Página > ${atual}`)
-  
-  } ,[])
-  useEffect(() => {
-
-    setAtual(route.name)
-    console.log(`Página > ${atual}`)
-  
-  } ,[infarto, alimentacao, imc, exercicio, tratamento])
-
   function handleTouchInfarto() {
-    if(!infarto){
-      let acao = infarto
-      // acao = !acao
-      // setInfarto(acao)
-      // setAlimentacao(false)
-      // setImc(false)
-      // setExercicio(false)
-      // setTratamento(false)
-      navigation.navigate('Infarto')
-      console.log(`Touch => Infarto = ${acao}`)
-    }
   }
   function handleTouchAlimentacao() {
-    if(!alimentacao){
-      let acao = alimentacao
-      // acao = !acao
-      // setInfarto(false)
-      // setAlimentacao(acao)
-      // setImc(false)
-      // setExercicio(false)
-      // setTratamento(false)
-      navigation.navigate('Alimentacao')
-
-      console.log(`Touch => Alimentacao = ${acao}`)
-    }
   }
   function handleTouchImc() {
-    if(!imc){
-      let acao = imc
-      // acao = !acao
-      // setInfarto(false)
-      // setAlimentacao(false)
-      // setImc(acao)
-      // setExercicio(false)
-      // setTratamento(false)
-      console.log(`Touch => Imc = ${acao}`)
-    }
   }
   function handleTouchExercicio() {
-    if(!exercicio){
-      let acao = exercicio
-      // acao = !acao
-      // setInfarto(false)
-      // setAlimentacao(false)
-      // setImc(false)
-      // setExercicio(acao)
-      // setTratamento(false)
-      console.log(`Touch => Exercicio = ${acao}`)
-    }
   }
   function handleTouchTratamento() {
-    if(!tratamento){
-      let acao = tratamento
-      // acao = !acao
-      // setInfarto(false)
-      // setAlimentacao(false)
-      // setImc(false)
-      // setExercicio(false)
-      // setTratamento(acao)
-      console.log(`Touch => Tratamento = ${acao}`)
-    }
   }
 
   
