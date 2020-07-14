@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 // INFARTO
 import Infarto from './pages/Infarto'
@@ -11,18 +11,19 @@ import Imc from './pages/Imc'
 import Exercicio from './pages/Exercicio'
 import Tratamento from './pages/Tratamento'
 
-const AppStack = createStackNavigator()
+const AppStack = createBottomTabNavigator()
 
 const Routes = () => {
   return (
     <NavigationContainer>
       <AppStack.Navigator 
-        headerMode="none">
+        screenOptions={{ tabBarVisible: false }}>
+        
+        <AppStack.Screen name="Imc" component={Imc} />
         <AppStack.Screen name="Infarto" component={Infarto} />
         <AppStack.Screen name="art001_Infarto" component={art001_Infarto} />
         
         <AppStack.Screen name="Alimentacao" component={Alimentacao} />
-        <AppStack.Screen name="Imc" component={Imc} />
         <AppStack.Screen name="Exercicio" component={Exercicio} />
         <AppStack.Screen name="Tratamento" component={Tratamento} />
       </AppStack.Navigator>

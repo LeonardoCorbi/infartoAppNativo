@@ -13,30 +13,35 @@ const colors = {
 }
 
 export interface Props {
-  intarto: boolean
-  alimentacao: boolean
-  imc: boolean
-  exercicio: boolean
-  tratamento: boolean
+  infarto?: boolean
+  alimentacao?: boolean
+  imc?: boolean
+  exercicio?: boolean
+  tratamento?: boolean
 }
-const TabIcons: React.FC<Props> = (
-  infarto: boolean,
-  alimentacao: boolean,
-  imc: boolean,
-  exercicio: boolean,
-  tratamento: boolean,
-) => {  
+const TabIcons: React.FC<Props> = ({
+  infarto,
+  alimentacao,
+  imc,
+  exercicio,
+  tratamento
+}) => {  
   const navigation = useNavigation()
 
   function handleTouchInfarto() {
+    navigation.navigate('Infarto')
   }
   function handleTouchAlimentacao() {
+    navigation.navigate('Alimentacao')
   }
   function handleTouchImc() {
+    navigation.navigate('Imc')
   }
   function handleTouchExercicio() {
+    navigation.navigate('Exercicio')
   }
   function handleTouchTratamento() {
+    navigation.navigate('Tratamento')
   }
 
   
@@ -101,15 +106,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imc: {
-    // alignSelf: 'flex-end',
     position: 'relative',
     top: -5,
-  },
-  iconTest:{
-    backgroundColor: 'blue',
-
-    width: 40,
-    height: 40,
+    transform: [{scale: 1.1}]
   },
 })
 

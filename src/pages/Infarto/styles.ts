@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { Platform } from 'react-native'
-import { RectButton } from 'react-native-gesture-handler'
 
 export const Container = styled.View`
   flex: 1;
@@ -16,7 +15,7 @@ export const HeaderContainer = styled.View`
 export const Title = styled.Text`
   color: #FFF;
   font-family: NoirPro_Medium;
-  font-size: ${Platform.select({ ios: 32, android: 24})};
+  font-size: ${Platform.select({ ios: '32', android: '24'})};
   line-height: 34;
 `
 
@@ -29,11 +28,8 @@ export const List = styled.View`
   border-top-left-radius: 80;
 
   margin-top: 24px;
-`
 
-export const Button = styled(RectButton)`
-  overflow: visible;
-
+  padding-top: 32;
 `
 
 export const ArticleContainer = styled.View`
@@ -45,7 +41,7 @@ export const ArticleContainer = styled.View`
 
   background-color: #FFF;
 
-  margin-top: 32;
+  margin-bottom: 32;
   margin-left: auto;
   margin-right: auto;
   padding: 8px;
@@ -95,7 +91,7 @@ export const ArticleTitle = styled.Text`
   display: flex;
 `
 
-export const ArticleSumary = styled.Text`
+export const ArticleSummary = styled.Text`
   width: 100%;
   height: 66%;
 
