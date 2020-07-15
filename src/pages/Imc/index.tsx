@@ -13,11 +13,12 @@ import {
   ImcInfo,
   ImcForm,
   PesoContainer,
-  PesoText,
+  TipoText,
   PesoInput,
   AlturaContainer,
   AlturaText,
   AlturaInput,
+  RightSide,
 } from './styles'
 
 const colors = {
@@ -44,17 +45,34 @@ const Infarto = () => {
             </ImcInfo>
 
             <ImcForm>
+
               <PesoContainer>
-                <PesoText>
 
-                </PesoText>
-                <PesoInput />
+                <TipoText>
+                  Peso:
+                </TipoText>
+
+                <RightSide>
+                  <PesoInput />
+                  <TipoText>
+                    Kg
+                  </TipoText>
+                </RightSide>   
+
               </PesoContainer>
-              <AlturaContainer>
-                <AlturaText>
 
-                </AlturaText>
-                <AlturaInput />
+              <AlturaContainer>
+                <TipoText>
+                  Altura:
+                </TipoText>
+
+                <RightSide>
+                  <AlturaInput />
+                  <TipoText>
+                    cm
+                  </TipoText>
+                </RightSide>
+
               </AlturaContainer>
             </ImcForm>
           </Main>

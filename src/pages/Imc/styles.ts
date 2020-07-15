@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Platform } from 'react-native'
+import { Platform, TextInput } from 'react-native'
 
 export const Container = styled.View`
   flex: 1;
@@ -33,6 +33,9 @@ export const Main = styled.View`
 `
 
 export const ImcInfo = styled.Text`
+  width: 95%;
+
+  margin-left: 5%;
   margin-top: 25px;
 
   text-align: right;
@@ -46,20 +49,54 @@ export const ImcForm = styled.View`
 `
 
 export const PesoContainer = styled.View`
+  display: flex;
 
-`
-export const PesoText = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
 
-`
-export const PesoInput = styled.View`
-
+  margin-bottom: 32;
 `
 export const AlturaContainer = styled.View`
+display: flex;
 
+flex-direction: row;
+justify-content: space-between;
+align-content: center;
 `
-export const AlturaText = styled.View`
 
+export const TipoText = styled.Text`
+  font-family: NoirPro_Medium;
+  color: #0E446E;
+  font-size: 24;
 `
-export const AlturaInput = styled.View`
 
+export const PesoInput = styled(TextInput)`
+background-color: #DBE8FC;
+
+width: 81%;
+height: 40px;
+
+border-radius: 12;
+
+padding: 0 8px;
+`
+
+export const AlturaInput = styled(TextInput)`
+  background-color: #DBE8FC;
+
+  width: 81%;
+  height: 40px;
+
+  border-radius: 12;
+
+  padding: 0 8px;
+`
+
+export const RightSide = styled.View`
+  width: 66%;
+  
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 `
