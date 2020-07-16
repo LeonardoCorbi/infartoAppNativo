@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Platform, TextInput } from 'react-native'
+import { Platform, TextInput, TouchableOpacity } from 'react-native'
 
 export const Container = styled.View`
   flex: 1;
@@ -21,7 +21,7 @@ export const Title = styled.Text`
 
 export const Main = styled.View`
   width: 100%;
-  height: auto;
+  height: 550px;
 
   background-color: #FFF;
 
@@ -99,4 +99,26 @@ export const RightSide = styled.View`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+`
+export const BtnCalcular = styled(TouchableOpacity)`
+  width: 80%;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #0E446E;
+
+  border-radius: 15;
+
+  margin-top: 88;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+export const BtnText = styled.Text`
+  color: #FFF;
+  font-family: NoirPro_Medium;
+  font-size: 24;
 `

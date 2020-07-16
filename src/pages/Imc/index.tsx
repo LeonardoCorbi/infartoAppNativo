@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, ScrollView, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
@@ -16,9 +16,10 @@ import {
   TipoText,
   PesoInput,
   AlturaContainer,
-  AlturaText,
   AlturaInput,
   RightSide,
+  BtnCalcular,
+  BtnText,
 } from './styles'
 
 const colors = {
@@ -30,6 +31,12 @@ const colors = {
 
 const Infarto = () => {
   const navigation = useNavigation()
+
+  const [resultado, setResultado] = useState(false)
+
+  function handleTouchCalcular() {
+    setResultado(true)
+  }
 
   return (
     <>
@@ -44,6 +51,8 @@ const Infarto = () => {
               IMC é o Índice de Massa Corpórea, parâmetro adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.
             </ImcInfo>
 
+            {(!resultado) ? console.log('nao calc') : console.log('calc')}
+            
             <ImcForm>
 
               <PesoContainer>
@@ -74,6 +83,13 @@ const Infarto = () => {
                 </RightSide>
 
               </AlturaContainer>
+
+              <BtnCalcular onPress={handleTouchCalcular} activeOpacity={.5}>
+                <BtnText>
+                  Calcular
+                </BtnText>
+              </BtnCalcular>
+
             </ImcForm>
           </Main>
         </Container>  
