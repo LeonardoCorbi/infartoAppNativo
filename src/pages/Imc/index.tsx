@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
+// import ImcForm from '../../components/ImcForm/index'
 
 import {
   Container,
@@ -18,7 +19,7 @@ import {
   AlturaContainer,
   AlturaInput,
   RightSide,
-  BtnCalcular,
+  Btn,
   BtnText,
 } from './styles'
 
@@ -29,14 +30,32 @@ const colors = {
   red: '#EA3D65'
 }
 
-const Infarto = () => {
+const Imc: React.FC = () => {
   const navigation = useNavigation()
 
   const [resultado, setResultado] = useState(false)
 
-  function handleTouchCalcular() {
-    setResultado(true)
+  const [peso, setPeso] = useState<number>(0) 
+  const [altura, setAltura] = useState<number>(0)
+  const [imc, setImc] = useState<number>(0)
+
+  function handleTouchButton() {
+    setResultado(!resultado)
+    if(!resultado) {
+      setImc((peso / (altura * altura) * 10000).toFixed(2))
+    }
   }
+
+  function handleInputPeso(event: Object) {
+    setPeso(event.nativeEvent.text)
+    console.log(peso)
+  }
+  
+  function handleInputAltura(event: Object) {
+    setAltura(event.nativeEvent.text)
+    console.log(altura)
+  }
+
 
   return (
     <>
@@ -47,50 +66,61 @@ const Infarto = () => {
             <Title>Calcule seu IMC</Title> 
           </HeaderContainer>
           <Main>
-            <ImcInfo>
-              IMC é o Índice de Massa Corpórea, parâmetro adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.
-            </ImcInfo>
+          
+          {(!resultado) ? (
+            <>
+              <ImcInfo>
+                IMC é o Índice de Massa Corpórea, parâmetro adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.
+              </ImcInfo>
+              <ImcForm>
 
-            {(!resultado) ? console.log('nao calc') : console.log('calc')}
+                <PesoContainer>
+
+                  <TipoText>
+                    Peso:
+                  </TipoText>
+                  <RightSide>
+                    <PesoInput onChange={handleInputPeso}/>
+                    <TipoText>
+                      Kg
+                    </TipoText>
+                  </RightSide>   
+
+                </PesoContainer>
+                <AlturaContainer>
+
+                  <TipoText>
+                    Altura:
+                  </TipoText>
+                  <RightSide>
+
+                    <AlturaInput onChange={handleInputAltura}/>
+                    <TipoText>
+                      cm
+                    </TipoText>
+
+                  </RightSide>
+
+                </AlturaContainer>
+
+              </ImcForm>
+            </>
+          ) : (
+            <>
+              <Text> Seu imc é de {imc}</Text>
+            </>
+          )}
+          
+            <Btn 
+            onPress={handleTouchButton} 
+            activeOpacity={.5}>
+
+              <BtnText>
+                {(!resultado) ? 'Calcular' : 'Calcular Novamente'}
+              </BtnText>
+
+            </Btn>
             
-            <ImcForm>
-
-              <PesoContainer>
-
-                <TipoText>
-                  Peso:
-                </TipoText>
-
-                <RightSide>
-                  <PesoInput />
-                  <TipoText>
-                    Kg
-                  </TipoText>
-                </RightSide>   
-
-              </PesoContainer>
-
-              <AlturaContainer>
-                <TipoText>
-                  Altura:
-                </TipoText>
-
-                <RightSide>
-                  <AlturaInput />
-                  <TipoText>
-                    cm
-                  </TipoText>
-                </RightSide>
-
-              </AlturaContainer>
-
-              <BtnCalcular onPress={handleTouchCalcular} activeOpacity={.5}>
-                <BtnText>
-                  Calcular
-                </BtnText>
-              </BtnCalcular>
-
-            </ImcForm>
           </Main>
         </Container>  
       </ScrollView>
@@ -99,4 +129,4 @@ const Infarto = () => {
   )
 }
 
-export default Infarto
+export default Imc

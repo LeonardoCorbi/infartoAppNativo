@@ -32,6 +32,35 @@ export const Main = styled.View`
   padding: 0 24px;
 `
 
+export const Btn = styled(TouchableOpacity)`
+  width: 80%;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #0E446E;
+
+  border-radius: 15;
+
+  margin-top: 88;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+export const BtnText = styled.Text`
+  color: #FFF;
+  font-family: NoirPro_Medium;
+  font-size: 24;
+`
+
+
+// ---------------FORM--------------------
+
+
+
+
 export const ImcInfo = styled.Text`
   width: 95%;
 
@@ -100,25 +129,9 @@ export const RightSide = styled.View`
   justify-content: space-between;
   flex-direction: row;
 `
-export const BtnCalcular = styled(TouchableOpacity)`
-  width: 80%;
-  height: 40px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  background-color: #0E446E;
+// --------------------RESULT--------------------------
 
-  border-radius: 15;
 
-  margin-top: 88;
-  margin-left: auto;
-  margin-right: auto;
-`
 
-export const BtnText = styled.Text`
-  color: #FFF;
-  font-family: NoirPro_Medium;
-  font-size: 24;
-`
