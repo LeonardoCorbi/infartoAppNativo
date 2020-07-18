@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
-// import ImcForm from '../../components/ImcForm/index'
 
 import {
   Container,
@@ -20,7 +19,13 @@ import {
   AlturaInput,
   RightSide,
   Btn,
+  TextBtnView,
   BtnText,
+  CalcImg,
+  TextTitle,
+  ImcResult,
+  ImcTextResult,
+  Hints,
 } from './styles'
 
 const colors = {
@@ -35,6 +40,8 @@ const Imc: React.FC = () => {
 
   const [resultado, setResultado] = useState(false)
 
+  const [menu, setMenu] = useState(true)
+
   const [peso, setPeso] = useState<number>(0) 
   const [altura, setAltura] = useState<number>(0)
   const [imc, setImc] = useState<number>(0)
@@ -43,17 +50,18 @@ const Imc: React.FC = () => {
     setResultado(!resultado)
     if(!resultado) {
       setImc((peso / (altura * altura) * 10000).toFixed(2))
+    }else {
+      setAltura(0)
+      setPeso(0)
     }
   }
 
-  function handleInputPeso(event: Object) {
-    setPeso(event.nativeEvent.text)
-    console.log(peso)
+  function handleInputPeso(event: number) {
+    setPeso(event)
   }
   
-  function handleInputAltura(event: Object) {
-    setAltura(event.nativeEvent.text)
-    console.log(altura)
+  function handleInputAltura(event: number) {
+    setAltura(event)
   }
 
 
@@ -80,7 +88,13 @@ const Imc: React.FC = () => {
                     Peso:
                   </TipoText>
                   <RightSide>
-                    <PesoInput onChange={handleInputPeso}/>
+                    <PesoInput 
+                    onChangeText={handleInputPeso}
+                    keyboardType="numeric"
+                    maxLength={3}
+                    onBlur={() => {setMenu(true)}}
+                    onFocus={() => {setMenu(false)}}
+                    />
                     <TipoText>
                       Kg
                     </TipoText>
@@ -94,7 +108,13 @@ const Imc: React.FC = () => {
                   </TipoText>
                   <RightSide>
 
-                    <AlturaInput onChange={handleInputAltura}/>
+                    <AlturaInput 
+                    onChangeText={handleInputAltura}
+                    keyboardType="numeric"
+                    maxLength={3}
+                    onBlur={() => {setMenu(true)}}
+                    onFocus={() => {setMenu(false)}}
+                    />
                     <TipoText>
                       cm
                     </TipoText>
@@ -107,24 +127,40 @@ const Imc: React.FC = () => {
             </>
           ) : (
             <>
-              <Text> Seu imc é de {imc}</Text>
+              <CalcImg />
+              <TextTitle>
+                Seu IMC é
+              </TextTitle>
+              <ImcResult imc={imc}>
+                {imc}
+              </ImcResult>
+              <ImcTextResult>
+                Você está com peso normal!
+              </ImcTextResult>
+              <Hints>
+                Continue tendo hábitos saudáveis e aproveite para aprender mais sobre como prevenir o infarto no app.
+              </Hints>
             </>
           )}
           
-            <Btn 
-            onPress={handleTouchButton} 
-            activeOpacity={.5}>
+            <Btn
+              onPress={handleTouchButton} 
+              activeOpacity={.5}>
+              
+              <TextBtnView>
 
-              <BtnText>
-                {(!resultado) ? 'Calcular' : 'Calcular Novamente'}
-              </BtnText>
+                <BtnText>
+                  {(!resultado) ? 'Calcular' : 'Calcular Novamente'}
+                </BtnText>
+              
+              </TextBtnView>
 
             </Btn>
             
           </Main>
         </Container>  
       </ScrollView>
-      <TabIcons imc />
+      {menu ? <TabIcons imc /> : undefined }
     </>    
   )
 }

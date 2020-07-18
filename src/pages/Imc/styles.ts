@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { Platform, TextInput, TouchableOpacity } from 'react-native'
+import Calculator from '../../assets/images/calculator.svg'
 
 export const Container = styled.View`
   flex: 1;
@@ -21,7 +22,7 @@ export const Title = styled.Text`
 
 export const Main = styled.View`
   width: 100%;
-  height: 550px;
+  height: 800px;
 
   background-color: #FFF;
 
@@ -32,28 +33,6 @@ export const Main = styled.View`
   padding: 0 24px;
 `
 
-export const Btn = styled(TouchableOpacity)`
-  width: 80%;
-  height: 40px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: #0E446E;
-
-  border-radius: 15;
-
-  margin-top: 88;
-  margin-left: auto;
-  margin-right: auto;
-`
-
-export const BtnText = styled.Text`
-  color: #FFF;
-  font-family: NoirPro_Medium;
-  font-size: 24;
-`
 
 
 // ---------------FORM--------------------
@@ -135,3 +114,89 @@ export const RightSide = styled.View`
 
 
 
+export const CalcImg = styled(Calculator)`
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+export const TextTitle = styled.Text`
+  text-align: center;
+  font-size: 24;
+  font-family: NoirPro_Medium;
+  color: #0E446E;
+
+  margin-top: 8;
+`
+
+export const ImcResult = styled.Text`
+  text-align: center;
+  font-size: 32;
+  font-family: NoirPro_Medium;
+  color: #0E446E;
+
+  margin-top: 5;
+
+`
+
+export const ImcTextResult = styled.Text`
+  text-align: center;
+  font-size: 24;
+  font-family: NoirPro_Medium;
+  color: #0E446E;
+
+  margin-top: 14;
+
+`
+
+export const Hints = styled.Text`
+  text-align: center;
+  font-size: 16;
+  font-family: NoirPro_Light;
+  color: #353941;
+  line-height: 22;
+
+  margin-top: 14;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+`
+
+
+
+
+// ----------------BUTTON--------------------
+
+
+
+
+export const Btn = styled(TouchableOpacity)`
+  width: 80%;
+  height: 40px;
+
+  background-color: #0E446E;
+
+  border-radius: 15;
+
+  margin-top: 88;
+  margin-left: auto;
+  margin-right: auto;
+`
+export const TextBtnView = styled.View`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: center;
+`
+
+export const BtnText = styled.Text`
+  color: #FFF;
+  font-family: NoirPro_Medium;
+  font-size: ${Platform.select({ ios: '30', android: '24'})};
+  text-align: center;
+  ${Platform.select({ ios: 'line-height: 50;'})}
+`
