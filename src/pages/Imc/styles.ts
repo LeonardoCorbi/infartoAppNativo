@@ -49,6 +49,8 @@ export const ImcInfo = styled.Text`
   text-align: right;
   font-family: NoirPro_Light;
   font-size: ${Platform.select({ ios: '19', android: '16'})};
+  ${Platform.select({ ios: 'line-height: 18;'})}
+
   color: #353941;
 `
 
@@ -63,7 +65,7 @@ export const PesoContainer = styled.View`
   justify-content: space-between;
   align-content: center;
 
-  margin-bottom: 32;
+  margin-bottom: ${Platform.select({ ios: '20', android: '32'})};
 `
 export const AlturaContainer = styled.View`
 display: flex;
@@ -77,6 +79,7 @@ export const TipoText = styled.Text`
   font-family: NoirPro_Medium;
   color: #0E446E;
   font-size: 24;
+  ${Platform.select({ ios: 'line-height: 49;'})}
 `
 
 export const PesoInput = styled(TextInput)`
@@ -143,10 +146,9 @@ export const ImcTextResult = styled.Text`
   text-align: center;
   font-size: 24;
   font-family: NoirPro_Medium;
-  color: #0E446E;
+  color: ${props => ( props.imc < 18.5 || props.imc > 25) ? '#EA3D65' : '#57B894'} ;
 
   margin-top: 14;
-
 `
 
 export const Hints = styled.Text`
@@ -178,7 +180,7 @@ export const Btn = styled(TouchableOpacity)`
 
   border-radius: 15;
 
-  margin-top: 88;
+  margin-top: ${props => props.resultado ? 16 : 88 };
   margin-left: auto;
   margin-right: auto;
 `

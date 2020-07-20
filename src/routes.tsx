@@ -19,11 +19,11 @@ const Routes = () => {
       <AppStack.Navigator 
         screenOptions={{ tabBarVisible: false }}>
         
-        <AppStack.Screen name="Imc" component={Imc} />
+        <AppStack.Screen name="Alimentacao" component={Alimentacao} />
         <AppStack.Screen name="Infarto" component={Infarto} />
         <AppStack.Screen name="art001_Infarto" component={art001_Infarto} />
         
-        <AppStack.Screen name="Alimentacao" component={Alimentacao} />
+        <AppStack.Screen name="Imc" component={Imc} />
         <AppStack.Screen name="Exercicio" component={Exercicio} />
         <AppStack.Screen name="Tratamento" component={Tratamento} />
       </AppStack.Navigator>

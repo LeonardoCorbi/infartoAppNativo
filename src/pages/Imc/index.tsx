@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Text, ScrollView, TouchableOpacity } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { ScrollView,  } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
@@ -42,6 +42,8 @@ const Imc: React.FC = () => {
 
   const [menu, setMenu] = useState(true)
 
+  const [filled, setFilled] = useState(false)
+
   const [peso, setPeso] = useState<number>(0) 
   const [altura, setAltura] = useState<number>(0)
   const [imc, setImc] = useState<number>(0)
@@ -64,6 +66,15 @@ const Imc: React.FC = () => {
     setAltura(event)
   }
 
+  
+  useEffect(() => {
+    if(peso != 0 && altura != 0) {
+      setFilled(true)
+    }else {
+      setFilled(false)
+    }
+
+  }, [peso, altura])
 
   return (
     <>
@@ -77,7 +88,10 @@ const Imc: React.FC = () => {
           
           {(!resultado) ? (
             <>
-              <ImcInfo>
+              <ImcInfo
+                accessible={true}
+                accessibilityLabel="Informações da página"
+              >
                 IMC é o Índice de Massa Corpórea, parâmetro adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.
               </ImcInfo>
               <ImcForm>
@@ -96,7 +110,7 @@ const Imc: React.FC = () => {
                     onFocus={() => {setMenu(false)}}
                     />
                     <TipoText>
-                      Kg
+                      kg
                     </TipoText>
                   </RightSide>   
 
@@ -131,21 +145,30 @@ const Imc: React.FC = () => {
               <TextTitle>
                 Seu IMC é
               </TextTitle>
-              <ImcResult imc={imc}>
+              <ImcResult>
                 {imc}
               </ImcResult>
-              <ImcTextResult>
-                Você está com peso normal!
+              <ImcTextResult imc={imc}>
+                {(imc > 25) 
+                ? 'Você está com sobrepeso!' 
+                
+                : (imc < 18.5) 
+                ? 'Você está abaixo do peso!' 
+                : 'Você está com peso normal!'}
               </ImcTextResult>
-              <Hints>
-                Continue tendo hábitos saudáveis e aproveite para aprender mais sobre como prevenir o infarto no app.
+              <Hints imc={imc}>
+                {( imc < 18.5 || imc > 25) 
+                ? 'Alguns hábitos precisam ser mudados, confira nossas dicas de alimentação saudável e exercícios físicos.' 
+                : 'Continue tendo hábitos saudáveis e aproveite para aprender mais sobre como prevenir o infarto no app.' }
               </Hints>
             </>
           )}
           
             <Btn
-              onPress={handleTouchButton} 
-              activeOpacity={.5}>
+              onPress={(filled) ? handleTouchButton : undefined } 
+              activeOpacity={.5}
+              resultado={resultado}
+              >
               
               <TextBtnView>
 
