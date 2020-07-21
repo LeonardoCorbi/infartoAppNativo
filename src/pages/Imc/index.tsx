@@ -82,15 +82,18 @@ const Imc: React.FC = () => {
       <ScrollView>
         <Container>
           <HeaderContainer>
-            <Title>Calcule seu IMC</Title> 
+            <Title
+            accessible
+            >
+              Calcule seu IMC
+            </Title> 
           </HeaderContainer>
           <Main>
           
           {(!resultado) ? (
             <>
               <ImcInfo
-                accessible={true}
-                accessibilityLabel="Informações da página"
+              accessible
               >
                 IMC é o Índice de Massa Corpórea, parâmetro adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.
               </ImcInfo>
@@ -98,31 +101,39 @@ const Imc: React.FC = () => {
 
                 <PesoContainer>
 
-                  <TipoText>
+                  <TipoText
+                  
+                  >
                     Peso:
                   </TipoText>
-                  <RightSide>
+                  <RightSide >
                     <PesoInput 
+                    accessible
+                    accessibilityLabel="Informe seu peso."
                     onChangeText={handleInputPeso}
                     keyboardType="numeric"
                     maxLength={3}
                     onBlur={() => {setMenu(true)}}
                     onFocus={() => {setMenu(false)}}
                     />
-                    <TipoText>
+                    <TipoText >
                       kg
                     </TipoText>
                   </RightSide>   
 
                 </PesoContainer>
-                <AlturaContainer>
+                <AlturaContainer >
 
-                  <TipoText>
+                  <TipoText
+                   
+                  >
                     Altura:
                   </TipoText>
                   <RightSide>
 
                     <AlturaInput 
+                    accessible
+                    accessibilityLabel="Informe sua altura."
                     onChangeText={handleInputAltura}
                     keyboardType="numeric"
                     maxLength={3}
