@@ -1,45 +1,13 @@
-import styled from 'styled-components/native';
-import { Platform } from 'react-native'
+import styled from 'styled-components/native'
 
 export const Container = styled.View`
-  flex: 1;
-
-  background-color: #0E446E;
-`
-
-export const HeaderContainer = styled.View`
-  margin-top: 88px;
-  margin-left: 32px;
-`
-
-export const Title = styled.Text`
-  color: #FFF;
-  font-family: NoirPro_Medium;
-  font-size: ${Platform.select({ ios: '32', android: '24'})};
-  line-height: 34;
-`
-
-export const List = styled.View`
-  width: 100%;
-  height: auto;
-
-  background-color: #FFF;
-
-  border-top-left-radius: 80;
-
-  margin-top: 24px;
-
-  padding-top: 32;
-`
-
-export const ArticleContainer = styled.View`
   display: flex;
   flex-direction: row;
 
   width: 88%;
   height: 144px;
 
-  background-color: #FFF;
+  background-color: red;
 
   margin-bottom: 32;
   margin-left: auto;

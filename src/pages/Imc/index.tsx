@@ -101,8 +101,9 @@ const Imc: React.FC = () => {
 
                 <PesoContainer>
 
-                  <TipoText
-                  
+                  <TipoText 
+                  accessible={false}
+                  importantForAccessibility="no"
                   >
                     Peso:
                   </TipoText>
@@ -116,7 +117,10 @@ const Imc: React.FC = () => {
                     onBlur={() => {setMenu(true)}}
                     onFocus={() => {setMenu(false)}}
                     />
-                    <TipoText >
+                    <TipoText
+                    accessible={false}
+                    importantForAccessibility="no"
+                    >
                       kg
                     </TipoText>
                   </RightSide>   
@@ -125,7 +129,8 @@ const Imc: React.FC = () => {
                 <AlturaContainer >
 
                   <TipoText
-                   
+                  accessible={false}
+                  importantForAccessibility="no"
                   >
                     Altura:
                   </TipoText>
@@ -140,7 +145,10 @@ const Imc: React.FC = () => {
                     onBlur={() => {setMenu(true)}}
                     onFocus={() => {setMenu(false)}}
                     />
-                    <TipoText>
+                    <TipoText                  
+                    accessible={false}
+                    importantForAccessibility="no"
+                    >
                       cm
                     </TipoText>
 
@@ -153,10 +161,16 @@ const Imc: React.FC = () => {
           ) : (
             <>
               <CalcImg />
-              <TextTitle>
+              <TextTitle
+              accessible={true}
+              accessibilityLabel={`Seu i emi cê é ${imc}`}
+              >
                 Seu IMC é
               </TextTitle>
-              <ImcResult>
+              <ImcResult
+              accessible={false}
+              importantForAccessibility="no"
+              >
                 {imc}
               </ImcResult>
               <ImcTextResult imc={imc}>
@@ -176,10 +190,10 @@ const Imc: React.FC = () => {
           )}
           
             <Btn
-              onPress={(filled) ? handleTouchButton : undefined } 
-              activeOpacity={.5}
-              resultado={resultado}
-              >
+            onPress={(filled) ? handleTouchButton : undefined } 
+            activeOpacity={.5}
+            resultado={resultado}
+            >
               
               <TextBtnView>
 

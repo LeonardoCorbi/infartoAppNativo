@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
+import ArticleCard from '../../components/ArticleCards/index'
 
 import {
   Container,
@@ -37,6 +38,13 @@ const Infarto = () => {
           </HeaderContainer>
 
           <List>
+
+            <ArticleCard
+            key={1}
+            imagem={'../../assets/images/artigo1.jpg'}   
+            title={'Teste'}
+            summary={'Teste teste teste'}
+            />
 
             <TouchableOpacity activeOpacity={.5} 
             onPress={() => navigation.navigate('art001_Infarto')}>
