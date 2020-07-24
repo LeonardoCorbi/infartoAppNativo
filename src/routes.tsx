@@ -11,6 +11,8 @@ import Imc from './pages/Imc'
 import Exercicio from './pages/Exercicio'
 import Tratamento from './pages/Tratamento'
 
+import ArticleComponent from './components/ArticleComponent'
+
 const AppStack = createBottomTabNavigator()
 
 const Routes = () => {
@@ -19,6 +21,7 @@ const Routes = () => {
       <AppStack.Navigator 
         screenOptions={{ tabBarVisible: false }}>
         
+        <AppStack.Screen name="ArticleComponent" component={ArticleComponent} />
         <AppStack.Screen name="Infarto" component={Infarto} />
         <AppStack.Screen name="art001_Infarto" component={art001_Infarto} />
         

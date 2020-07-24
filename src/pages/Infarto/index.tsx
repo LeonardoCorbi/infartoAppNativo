@@ -28,6 +28,11 @@ const colors = {
 const Infarto = () => {
   const navigation = useNavigation()
 
+  var title = 'Como saber se estou tento um infarto?'
+  var summary = 'Entenda os sintomas do infarto.'
+  var articleId = 1
+  var imageURL = 'https://images.unsplash.com/photo-1508801176750-a71beee9862a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+
   return (
     <>
       <Logo />
@@ -39,12 +44,21 @@ const Infarto = () => {
 
           <List>
 
+
+          <TouchableOpacity 
+          activeOpacity={.5}
+          onPress={() => {}}
+          accessible
+          accessibilityLabel={`Artigo: ${title}. ${summary}`}
+          key={articleId}
+          >
             <ArticleCard
-            key={1}
-            imagem={'../../assets/images/artigo1.jpg'}   
-            title={'Teste'}
-            summary={'Teste teste teste'}
+            imagem={imageURL}   
+            title={title}
+            summary={summary}
             />
+          </TouchableOpacity>  
+
 
             <TouchableOpacity activeOpacity={.5} 
             onPress={() => navigation.navigate('art001_Infarto')}>

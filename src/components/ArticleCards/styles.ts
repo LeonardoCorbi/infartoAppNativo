@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { Platform } from 'react-native'
 
 export const Container = styled.View`
   display: flex;
@@ -7,7 +8,7 @@ export const Container = styled.View`
   width: 88%;
   height: 144px;
 
-  background-color: red;
+  background-color: #FFF;
 
   margin-bottom: 32;
   margin-left: auto;

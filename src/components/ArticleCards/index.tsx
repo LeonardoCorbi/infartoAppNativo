@@ -10,22 +10,20 @@ import {
 } from './styles'
 
 interface ArticleData {
-  articleId: Number
-  imagem: String
-  title: String
-  summary: String
+  imagem: string
+  title: string
+  summary: string
 }
 const ArticleCard: React.FC<ArticleData> = ({
-  articleId,
   imagem,
   title,
   summary
 }) => {
  
   return (
-    <Container key={articleId}>
+    <Container>
 
-      <ArticleImage source={require(imagem)}/>   
+      <ArticleImage source={{uri: imagem}}/>   
 
       <ContentContainer>
 
