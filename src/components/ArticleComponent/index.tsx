@@ -1,7 +1,9 @@
-import React from 'react'
-import { ScrollView  } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { ScrollView, View  } from 'react-native'
 import StatusViewer from '../StatusViewer'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
+
+import api from '../../services/api'
 
 import { 
   ArticleImage, 
@@ -20,45 +22,103 @@ import {
   AuthorData
 } from './styles'
 
+interface CardProps {
+  cat: string
+  articleId: number
+  ator: number
+}
+
+interface ArticleProps {
+  id: number
+  title: string
+  image: string
+  content: string
+  summary: string
+  category: string
+  authorId: number
+}
+
+interface AuthorProps {
+  id: number
+  name: string
+  role: string
+  image: string
+}
+
 const ArticleComponent = () => {
   const navigation = useNavigation()
+  const route = useRoute()
 
-  var imageURL ='https://images.unsplash.com/photo-1508801176750-a71beee9862a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-  var title = 'Quando é indicado fazer uma cirurgia'
-  var articleContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad voluptates, repellendus voluptatum enim vitae sunt cupiditate optio, laborum suscipit vel excepturi ratione porro quae odio totam aspernatur quis commodi aliquam distinctio unde esse? Velit quisquam asperiores maiores libero harum dicta vitae dolores aliquam commodi cumque ea eos veritatis dolorem impedit tempore, nulla, quaerat sed aperiam non. Illum sunt modi similique explicabo magni quae dolorum natus exercitationem nesciunt eligendi voluptatum voluptates amet enim laboriosam, dolore harum laudantium quos cum dolorem officiis, quasi impedit nulla beatae cupiditate? Necessitatibus quidem officiis ipsa, commodi at et laboriosam, quos accusantium cupiditate ducimus ad in architecto'
-  var authorName = 'Ana Medeiros'
-  var authorOccupation = 'Estudante de Medicina'
-  var authorImage = 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+  const routeParams = route.params as CardProps
+
+  const [article, setArticle] = useState<ArticleProps[]>([])
+  const [author, setAuthor] = useState<AuthorProps[]>([])
+
+  useEffect(() => {
+    api.get(`${routeParams.cat}/${routeParams.articleId}`)
+    // api.get(`infarto/2`)
+      .then(response => setArticle(response.data))
+  }, [])
+
+  useEffect(() => {
+    api.get(`authorAdmLeoLeo/${routeParams.ator}`)
+      .then(response => setAuthor(response.data))
+  }, [])
 
   return (
     <>
       <StatusViewer />
       <ScrollView>
-        <HeaderContainer>
-          <BackButton 
-          onPress={() => navigation.goBack()} 
-          width="32" height="32"/>
-          <ArticleImage source={{uri: imageURL}} />
-        </HeaderContainer>
-        <ContentContainer>
-          <ShareButtonContainer>
-            <ShareButton onPress={() => {console.log('Shared')}} width="62" height="62"/>
-          </ShareButtonContainer>
-          <TitleArticle>
-            {title}
-          </TitleArticle>
-          <Article>
-            {articleContent}
-          </Article>
-          <AuthorTitle>Artigo escrito por:</AuthorTitle>
-          <AuthorContainer>
-            <AuthorImage source={{uri: authorImage}}/>
-            <AuthorData>
-              <AuthorName>{authorName}</AuthorName>
-              <AuthorVocation>{authorOccupation}</AuthorVocation>
-            </AuthorData>  
-          </AuthorContainer>
-        </ContentContainer>
+
+        {article.map(item => (
+          <View key={item.id}>
+            <HeaderContainer>
+            
+              <BackButton 
+              onPress={() => navigation.goBack()} 
+              width="32" height="32"/>
+              <ArticleImage source={{uri: item.image}} />
+
+            </HeaderContainer>
+            <ContentContainer>
+
+              <ShareButtonContainer>
+                <ShareButton onPress={() => {console.log('Shared')}} width="62" height="62"/>
+              </ShareButtonContainer>
+
+              <TitleArticle>
+                {item.title}
+              </TitleArticle>
+
+              <Article>
+                {item.content}
+              </Article>
+
+              <AuthorTitle>Artigo escrito por:</AuthorTitle>
+
+              {author.map(autor => (
+                <View key={autor.id}>
+                  <AuthorContainer>
+                    <AuthorImage source={{uri: autor.image}}/>
+
+                    <AuthorData>
+
+                      <AuthorName>{autor.name}</AuthorName>
+                      <AuthorVocation>{autor.role}</AuthorVocation>
+
+                    </AuthorData>  
+                  </AuthorContainer>
+                </View>
+                ))
+                
+              }
+              
+
+            </ContentContainer> 
+          </View>
+        ))
+        
+        }
       </ScrollView>
     </>
   )

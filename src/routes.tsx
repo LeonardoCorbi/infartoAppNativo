@@ -21,8 +21,8 @@ const Routes = () => {
       <AppStack.Navigator 
         screenOptions={{ tabBarVisible: false }}>
         
-        <AppStack.Screen name="ArticleComponent" component={ArticleComponent} />
         <AppStack.Screen name="Infarto" component={Infarto} />
+        <AppStack.Screen name="ArticleComponent" component={ArticleComponent} />
         <AppStack.Screen name="art001_Infarto" component={art001_Infarto} />
         
         <AppStack.Screen name="Alimentacao" component={Alimentacao} />

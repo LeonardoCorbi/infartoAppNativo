@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, ScrollView, TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
 import ArticleCard from '../../components/ArticleCards/index'
+
+import api from '../../services/api'
 
 import {
   Container,
@@ -18,15 +20,32 @@ import {
   ArticleSummary
 } from './styles'
 
-const colors = {
-  primary: '#0E446E',
-  textContent: '#353941',
-  shadow: '#1476A04A',
-  red: '#EA3D65'
+interface ArticleProps {
+  id: number
+  title: string
+  image: string
+  content: string
+  summary: string
+  category: string
+  authorId: number
 }
 
 const Infarto = () => {
   const navigation = useNavigation()
+  const route = useRoute()
+  const category = 'infarto'
+
+  
+  const [articles, setArticles] = useState<ArticleProps[]>([])
+  
+  useEffect(()=>{
+    api.get('infarto').then(response => setArticles(response.data))
+  }, [])
+  
+  function handleGoToArticlePage(ator: number, cat: string) {
+    navigation.navigate('ArticleComponent', {ator, cat})
+  }
+
 
   var title = 'Como saber se estou tento um infarto?'
   var summary = 'Entenda os sintomas do infarto.'
@@ -44,20 +63,38 @@ const Infarto = () => {
 
           <List>
 
+            {
+              articles.map(article => (
+                  <TouchableOpacity 
+                  activeOpacity={.5}
+                  onPress={() => handleGoToArticlePage(article.authorId, article.category)}
+                  accessible
+                  accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
+                  key={article.id}
+                  >
+                    <ArticleCard
+                    imagem={article.image}   
+                    title={article.title}
+                    summary={article.summary}
+                    />
+                  </TouchableOpacity>
+              ))  
+            }
 
-          <TouchableOpacity 
-          activeOpacity={.5}
-          onPress={() => {}}
-          accessible
-          accessibilityLabel={`Artigo: ${title}. ${summary}`}
-          key={articleId}
-          >
-            <ArticleCard
-            imagem={imageURL}   
-            title={title}
-            summary={summary}
-            />
-          </TouchableOpacity>  
+
+            <TouchableOpacity 
+            activeOpacity={.5}
+            onPress={() => {}}
+            accessible
+            accessibilityLabel={`Artigo: ${title}. ${summary}`}
+            key={articleId}
+            >
+              <ArticleCard
+              imagem={imageURL}   
+              title={title}
+              summary={summary}
+              />
+            </TouchableOpacity>  
 
 
             <TouchableOpacity activeOpacity={.5} 
