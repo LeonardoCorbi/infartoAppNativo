@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Text, ScrollView, TouchableOpacity } from 'react-native'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { ScrollView, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
@@ -32,25 +32,21 @@ interface ArticleProps {
 
 const Infarto = () => {
   const navigation = useNavigation()
-  const route = useRoute()
-  const category = 'infarto'
-
-  
+ 
   const [articles, setArticles] = useState<ArticleProps[]>([])
   
   useEffect(()=>{
     api.get('infarto').then(response => setArticles(response.data))
   }, [])
   
-  function handleGoToArticlePage(ator: number, cat: string) {
-    navigation.navigate('ArticleComponent', {ator, cat})
+  function handleGoToArticlePage(artID: number, cat: string, autID: number) {
+    navigation.navigate('ArticleComponent', {
+      artID, 
+      cat, 
+      autID
+    })
   }
 
-
-  var title = 'Como saber se estou tento um infarto?'
-  var summary = 'Entenda os sintomas do infarto.'
-  var articleId = 1
-  var imageURL = 'https://images.unsplash.com/photo-1508801176750-a71beee9862a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
 
   return (
     <>
@@ -67,7 +63,7 @@ const Infarto = () => {
               articles.map(article => (
                   <TouchableOpacity 
                   activeOpacity={.5}
-                  onPress={() => handleGoToArticlePage(article.authorId, article.category)}
+                  onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
                   accessible
                   accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
                   key={article.id}
@@ -82,22 +78,7 @@ const Infarto = () => {
             }
 
 
-            <TouchableOpacity 
-            activeOpacity={.5}
-            onPress={() => {}}
-            accessible
-            accessibilityLabel={`Artigo: ${title}. ${summary}`}
-            key={articleId}
-            >
-              <ArticleCard
-              imagem={imageURL}   
-              title={title}
-              summary={summary}
-              />
-            </TouchableOpacity>  
-
-
-            <TouchableOpacity activeOpacity={.5} 
+            {/* <TouchableOpacity activeOpacity={.5} 
             onPress={() => navigation.navigate('art001_Infarto')}>
               <ArticleContainer>
                 <ArticleImage source={require('../../assets/images/artigo1.jpg')} />   
@@ -135,7 +116,7 @@ const Infarto = () => {
                   </Text>    
                 </ContentContainer>
               </ArticleContainer>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
           </List>
         </Container>  

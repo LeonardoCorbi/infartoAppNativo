@@ -23,9 +23,9 @@ import {
 } from './styles'
 
 interface CardProps {
+  artID: number
   cat: string
-  articleId: number
-  ator: number
+  autID: number
 }
 
 interface ArticleProps {
@@ -51,19 +51,22 @@ const ArticleComponent = () => {
 
   const routeParams = route.params as CardProps
 
+  console.log(route.params)
+
   const [article, setArticle] = useState<ArticleProps[]>([])
   const [author, setAuthor] = useState<AuthorProps[]>([])
 
   useEffect(() => {
-    api.get(`${routeParams.cat}/${routeParams.articleId}`)
-    // api.get(`infarto/2`)
+    api.get(`${routeParams.cat}/${routeParams.artID}`)
+    // api.get(`infarto/3`)
       .then(response => setArticle(response.data))
-  }, [])
+  }, [routeParams])
 
   useEffect(() => {
-    api.get(`authorAdmLeoLeo/${routeParams.ator}`)
+    api.get(`authorAdmLeoLeo/${routeParams.autID}`)
+    // api.get(`authorAdmLeoLeo/1`)
       .then(response => setAuthor(response.data))
-  }, [])
+  }, [routeParams])
 
   return (
     <>

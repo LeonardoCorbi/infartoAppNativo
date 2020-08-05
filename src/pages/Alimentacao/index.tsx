@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollView, Text, Button, View } from 'react-native'
+import { ScrollView, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
+import ArticleCard from '../../components/ArticleCards/index'
 
 import api from '../../services/api'
 
 import {
   Container,
-  Input,
-  Botao,
-  Texto,
-  Imagem,
-  BotaoOpacity,
+  HeaderContainer,
+  Title,
+  List
 } from './styles'
 
 interface ArticleProps {
@@ -22,102 +21,63 @@ interface ArticleProps {
   image: string
   content: string
   summary: string
+  category: string
   authorId: number
 }
 
-
 const Alimentacao = () => {
   const navigation = useNavigation()
-
-  const [counter, setCounter] = useState(0)
-
+ 
   const [articles, setArticles] = useState<ArticleProps[]>([])
-
-  useEffect(()=>{
-    api.get('infarto').then(response => console.log(response))
-  }, [counter])
   
+  useEffect(()=>{
+    api.get('alimentacao').then(response => setArticles(response.data))
+  }, [])
+  
+  function handleGoToArticlePage(artID: number, cat: string, autID: number) {
+    navigation.navigate('ArticleComponent', {
+      artID, 
+      cat, 
+      autID
+    })
+  }
+
   return (
     <>
-      {/* <Logo /> */}
+      <Logo />
       <ScrollView>
-        <Container style={{marginTop: 60}}>
+        <Container>
+          <HeaderContainer>
+            <Title>Alimentação Saudável</Title> 
+          </HeaderContainer>
 
-          <Button title={`counter ${counter}`} onPress={() => setCounter(counter + 1)} />
+          <List>
 
-            
+            {
+              articles.map(article => (
+                  <TouchableOpacity 
+                  activeOpacity={.5}
+                  onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
+                  accessible
+                  accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
+                  key={article.id}
+                  >
+                    <ArticleCard
+                    imagem={article.image}   
+                    title={article.title}
+                    summary={article.summary}
+                    />
+                  </TouchableOpacity>
+              ))  
+            }
 
-          {
-            articles.map(article => (
-              <View key={article.id}>
-                <Text style={{color:'black'}}>{article.authorId}</Text>
-                <Text style={{color:'black'}}>{article.content}</Text>
-                <Text style={{color:'black'}}>{article.id}</Text>
-                <Text style={{color:'black'}}>{article.image}</Text>
-                <Text style={{color:'black'}}>{article.summary}</Text>
-                <Text style={{color:'black'}}>{article.title}</Text>
-              </View>  
-            ))
-
-          }
-
-
-
-
-
-
-
-          <Texto
-          accessible={true}
-          >
-            Isso é um teste de texto
-          </Texto>
-
-          <Input             
-          accessible={true}
-          accessibilityLabel="Digite seu peso." 
-          />
-          
-          <Input             
-          accessible={true}
-          accessibilityLabel="Digite sua altura." 
-          />
-
-          <Botao
-          accessible={true}
-          accessibilityLabel="Botão para Calcular í emi cê"  
-          title="Calcular"
-          onPress={() => {alert('clicked')}} 
-          />
-          
-          <BotaoOpacity
-          accessible={true}
-          accessibilityLabel="Botão para Calcular í emi cê"  
-          title="Calcular"
-          onPress={() => {alert('clicked')}}
-          >
-            <Text>
-             Olá
-            </Text>
-          </BotaoOpacity>
-
-          <Imagem 
-          accessible={true}
-          accessibilityRole="image"
-          source={require('../../assets/images/userImage.png')}
-          alt="Foto de médica com aparelho para ouvir coração"
-          />
-
-
-
-
-
-        </Container>
+          </List>
+        </Container>  
       </ScrollView>
       <TabIcons alimentacao />
     </>
   )
+   
 }
-
 
 export default Alimentacao
