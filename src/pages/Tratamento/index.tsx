@@ -31,7 +31,7 @@ const Tratamento = () => {
   const [articles, setArticles] = useState<ArticleProps[]>([])
   
   useEffect(()=>{
-    api.get('alimentacao').then(response => setArticles(response.data))
+    api.get('tratamento').then(response => setArticles(response.data))
   }, [])
   
   function handleGoToArticlePage(artID: number, cat: string, autID: number) {
