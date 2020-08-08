@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollView, TouchableOpacity } from 'react-native'
+import { ScrollView, TouchableOpacity, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
@@ -27,7 +27,7 @@ interface ArticleProps {
 
 const Alimentacao = () => {
   const navigation = useNavigation()
- 
+
   const [articles, setArticles] = useState<ArticleProps[]>([])
   
   useEffect(()=>{
