@@ -62,7 +62,7 @@ const Infarto = () => {
             {
               articles.map(article => (
                   <TouchableOpacity 
-                  activeOpacity={.5}
+                  activeOpacity={.9}
                   onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
                   accessible
                   accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
