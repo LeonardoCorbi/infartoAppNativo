@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollView, TouchableOpacity, Text } from 'react-native'
+import { ScrollView, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import Logo from '../../components/Logo/index'
@@ -56,7 +56,7 @@ const Alimentacao = () => {
             {
               articles.map(article => (
                   <TouchableOpacity 
-                  activeOpacity={.5}
+                  activeOpacity={.9}
                   onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
                   accessible
                   accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
