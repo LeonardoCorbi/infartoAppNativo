@@ -12,7 +12,8 @@ import {
   Container,
   HeaderContainer,
   Title,
-  List
+  List,
+  Loading,
 } from './styles'
 
 interface ArticleProps {
@@ -54,13 +55,19 @@ const Alimentacao = () => {
           <List>
 
             {
+              (articles.length > 0)
+                ? undefined 
+                : <Loading source={require('../../assets/loading.gif')} /> 
+            }
+
+            {
               articles.map(article => (
                   <TouchableOpacity 
-                  activeOpacity={.9}
-                  onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
-                  accessible
-                  accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
-                  key={article.id}
+                    activeOpacity={.9}
+                    onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
+                    accessible
+                    accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
+                    key={article.id}
                   >
                     <ArticleCard
                     imagem={article.image}   
@@ -70,6 +77,7 @@ const Alimentacao = () => {
                   </TouchableOpacity>
               ))  
             }
+              
 
           </List>
         </Container>  

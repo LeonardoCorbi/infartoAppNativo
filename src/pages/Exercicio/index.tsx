@@ -12,7 +12,8 @@ import {
   Container,
   HeaderContainer,
   Title,
-  List
+  List,
+  Loading
 } from './styles'
 
 interface ArticleProps {
@@ -52,6 +53,12 @@ const Exercicio = () => {
           </HeaderContainer>
 
           <List>
+
+            {
+              (articles.length > 0)
+                ? undefined 
+                : <Loading source={require('../../assets/loading.gif')} /> 
+            }
 
             {
               articles.map(article => (

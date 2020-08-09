@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import { Platform } from 'react-native'
 
+export const Loading = styled.Image``
+
 export const Container = styled.View`
   flex: 1;
 
@@ -21,7 +23,7 @@ export const Title = styled.Text`
 
 export const List = styled.View`
   width: 100%;
-  height: auto;
+  height: 110%;
 
   background-color: #FFF;
 

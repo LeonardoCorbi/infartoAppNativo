@@ -11,8 +11,6 @@ import {
   BackButton,
   ContentContainer, 
   TitleArticle, 
-  ShareButtonContainer,
-  ShareButton,
   Article,
   AuthorContainer,
   AuthorTitle,
@@ -58,13 +56,11 @@ const ArticleComponent = () => {
 
   useEffect(() => {
     api.get(`${routeParams.cat}/${routeParams.artID}`)
-    // api.get(`infarto/3`)
       .then(response => setArticle(response.data))
   }, [routeParams])
 
   useEffect(() => {
     api.get(`authorAdmLeoLeo/${routeParams.autID}`)
-    // api.get(`authorAdmLeoLeo/1`)
       .then(response => setAuthor(response.data))
   }, [routeParams])
 
@@ -79,15 +75,11 @@ const ArticleComponent = () => {
             
               <BackButton 
               onPress={() => navigation.goBack()} 
-              width="32" height="32"/>
+              width="40" height="40"/>
               <ArticleImage source={{uri: item.image}} />
 
             </HeaderContainer>
             <ContentContainer>
-
-              <ShareButtonContainer>
-                <ShareButton onPress={() => {console.log('Shared')}} width="62" height="62"/>
-              </ShareButtonContainer>
 
               <TitleArticle>
                 {item.title}

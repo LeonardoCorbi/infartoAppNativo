@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
 import ArticleCard from '../../components/ArticleCards/index'
+import SplashScreen from '../../components/SplashScreen'
 
 import api from '../../services/api'
 
@@ -13,11 +14,6 @@ import {
   HeaderContainer,
   Title,
   List,
-  ArticleContainer,
-  ArticleImage,
-  ContentContainer,
-  ArticleTitle,
-  ArticleSummary
 } from './styles'
 
 interface ArticleProps {
@@ -45,6 +41,10 @@ const Infarto = () => {
       cat, 
       autID
     })
+  }
+
+  if(!(articles.length > 0)) {
+    return <SplashScreen />
   }
 
 

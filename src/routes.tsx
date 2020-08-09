@@ -16,8 +16,8 @@ const AppStack = createBottomTabNavigator()
 
 const Routes = () => {
   return (
-    <NavigationContainer>
-      <AppStack.Navigator 
+    <NavigationContainer  >
+      <AppStack.Navigator
         screenOptions={{ tabBarVisible: false }}>
         
         <AppStack.Screen name="Infarto" component={Infarto} />
