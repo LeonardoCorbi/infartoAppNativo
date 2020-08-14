@@ -103,8 +103,10 @@ export const AuthorContainer = styled.View`
   margin-top: 10px;
 
   display: flex;
+  align-items: center;
 
   flex-direction: row;
+
 `
 
 export const AuthorImage = styled.Image`
@@ -115,11 +117,13 @@ export const AuthorImage = styled.Image`
 `
 
 export const AuthorData = styled.View`
+  display: flex;
   justify-content: center;
 
-  margin-top: 7px;
+  /* margin-top: 7px; */
 
   height: 54px;
+
 `
 
 export const AuthorName = styled.Text`

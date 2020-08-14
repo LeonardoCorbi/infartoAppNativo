@@ -49,8 +49,6 @@ const ArticleComponent = () => {
 
   const routeParams = route.params as CardProps
 
-  console.log(route.params)
-
   const [article, setArticle] = useState<ArticleProps[]>([])
   const [author, setAuthor] = useState<AuthorProps[]>([])
 
