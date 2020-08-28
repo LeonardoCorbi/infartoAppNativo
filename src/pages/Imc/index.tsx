@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { ScrollView,  } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
@@ -76,6 +76,8 @@ const Imc: React.FC = () => {
 
   }, [peso, altura])
 
+  const alturaRef = useRef(AlturaInput)
+
   return (
     <>
       <Logo />
@@ -109,13 +111,15 @@ const Imc: React.FC = () => {
                   </TipoText>
                   <RightSide >
                     <PesoInput 
+                    returnKeyType="next"
                     accessible
                     accessibilityLabel="Informe seu peso."
                     onChangeText={handleInputPeso}
                     keyboardType="numeric"
-                    maxLength={3}
+                    maxLength={5}
                     onBlur={() => {setMenu(true)}}
                     onFocus={() => {setMenu(false)}}
+                    onSubmitEditing={() => alturaRef.current.focus()}
                     />
                     <TipoText
                     accessible={false}
@@ -137,6 +141,7 @@ const Imc: React.FC = () => {
                   <RightSide>
 
                     <AlturaInput 
+                    ref={alturaRef}
                     accessible
                     accessibilityLabel="Informe sua altura."
                     onChangeText={handleInputAltura}
@@ -144,6 +149,8 @@ const Imc: React.FC = () => {
                     maxLength={3}
                     onBlur={() => {setMenu(true)}}
                     onFocus={() => {setMenu(false)}}
+                    onSubmitEditing={(filled) ? handleTouchButton : undefined } 
+
                     />
                     <TipoText                  
                     accessible={false}
