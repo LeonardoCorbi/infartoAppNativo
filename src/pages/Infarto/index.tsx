@@ -6,6 +6,7 @@ import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
 import ArticleCard from '../../components/ArticleCards/index'
 import SplashScreen from '../../components/SplashScreen'
+import ShimmerArticleCards from '../../components/ShimmerArticleCards'
 
 import api from '../../services/api'
 
@@ -32,7 +33,7 @@ const Infarto = () => {
   const [articles, setArticles] = useState<ArticleProps[]>([])
   
   useEffect(()=>{
-    api.get('infarto').then(response => setArticles(response.data))
+    // api.get('infarto').then(response => setArticles(response.data))
   }, [])
   
   function handleGoToArticlePage(artID: number, cat: string, autID: number) {
@@ -43,9 +44,9 @@ const Infarto = () => {
     })
   }
 
-  if(!(articles.length > 0)) {
-    return <SplashScreen />
-  }
+  // if(!(articles.length > 0)) {
+  //   return <SplashScreen />
+  // }
 
 
   return (
@@ -60,21 +61,34 @@ const Infarto = () => {
           <List>
 
             {
-              articles.map(article => (
-                  <TouchableOpacity 
-                  activeOpacity={.9}
-                  onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
-                  accessible
-                  accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
-                  key={article.id}
-                  >
-                    <ArticleCard
-                    imagem={article.image}   
-                    title={article.title}
-                    summary={article.summary}
-                    />
-                  </TouchableOpacity>
-              ))  
+
+              (!(articles.length > 0)) ? (
+                <>
+                  <ShimmerArticleCards />
+                  <ShimmerArticleCards />
+                  <ShimmerArticleCards />
+                  <ShimmerArticleCards />
+                  <ShimmerArticleCards />
+                </>  
+              ) : (
+
+                articles.map(article => (
+                    <TouchableOpacity 
+                    activeOpacity={.9}
+                    onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
+                    accessible
+                    accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
+                    key={article.id}
+                    >
+                      <ArticleCard
+                      imagem={article.image}   
+                      title={article.title}
+                      summary={article.summary}
+                      />
+                    </TouchableOpacity>
+                ))  
+              )
+
             }
 
 
