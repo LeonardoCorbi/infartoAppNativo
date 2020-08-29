@@ -64,11 +64,10 @@ const Infarto = () => {
 
               (!(articles.length > 0)) ? (
                 <>
-                  <ShimmerArticleCards />
-                  <ShimmerArticleCards />
-                  <ShimmerArticleCards />
-                  <ShimmerArticleCards />
-                  <ShimmerArticleCards />
+                  <ShimmerArticleCards variant={60} />
+                  <ShimmerArticleCards variant={60} />
+                  <ShimmerArticleCards variant={60} />
+                  <ShimmerArticleCards variant={60} />
                 </>  
               ) : (
 
@@ -90,47 +89,6 @@ const Infarto = () => {
               )
 
             }
-
-
-            {/* <TouchableOpacity activeOpacity={.5} 
-            onPress={() => navigation.navigate('art001_Infarto')}>
-              <ArticleContainer>
-                <ArticleImage source={require('../../assets/images/artigo1.jpg')} />   
-                <ContentContainer>
-                  <Text>
-                    <ArticleTitle>
-                      A principal causa do infarto
-                    </ArticleTitle>
-                  </Text>
-
-                  <Text>  
-                    <ArticleSummary>
-                      Saiba os principais motivos da ocorrência do infarto
-                    </ArticleSummary>
-                  </Text>    
-                </ContentContainer>
-              </ArticleContainer>
-            </TouchableOpacity>
-
-            <TouchableOpacity activeOpacity={.5} 
-            onPress={() => navigation.navigate('art001_Infarto')}>
-              <ArticleContainer>
-                <ArticleImage source={require('../../assets/images/artigo1.jpg')} />   
-                <ContentContainer>
-                  <Text>
-                    <ArticleTitle>
-                      A principal causa do infarto
-                    </ArticleTitle>
-                  </Text>
-
-                  <Text>  
-                    <ArticleSummary>
-                      Saiba os principais motivos da ocorrência do infarto
-                    </ArticleSummary>
-                  </Text>    
-                </ContentContainer>
-              </ArticleContainer>
-            </TouchableOpacity> */}
 
           </List>
         </Container>  

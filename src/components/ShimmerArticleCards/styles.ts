@@ -69,7 +69,8 @@ export const ArticleTitle = styled.View`
 `
 
 export const ArticleSummary = styled.View`
-  width: ${(props: PropEl) => props.length};
+  width: ${(props: PropEl) => props.length + `%`};
+  max-width: 100%;
   height: 10;
   margin-top: 8;
   background-color: lightgray;

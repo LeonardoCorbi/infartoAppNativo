@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 
 import {
   Container,
@@ -14,6 +13,14 @@ interface SummaryLength {
 }
 
 const ShimmerArticleCards: React.FC<SummaryLength> = ({ variant }) => {
+
+  function lineLength(nmb: number) {
+    return nmb +
+    Math.random() * 9 + 
+    Math.random() * 13 + 
+    Math.random() * 20
+  }
+
   return (
     <Container>
 
@@ -23,10 +30,11 @@ const ShimmerArticleCards: React.FC<SummaryLength> = ({ variant }) => {
 
         <ArticleTitle />
 
-        <ArticleSummary length={Math.random() * 900} />
-        <ArticleSummary length={Math.random()} />
-        <ArticleSummary length={Math.random()} />
-        <ArticleSummary length={Math.random()} />
+        <ArticleSummary length={lineLength(variant)} />
+        <ArticleSummary length={lineLength(variant)} />
+        <ArticleSummary length={lineLength(variant)} />
+        <ArticleSummary length={lineLength(variant)} />
+        
 
       </ContentContainer>
       
