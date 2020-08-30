@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { ScrollView, View  } from 'react-native'
 import StatusViewer from '../StatusViewer'
 import { useNavigation, useRoute } from '@react-navigation/native'
+import ShimmerArticleComponent from '../ShimmerArticleComponent'
 
 import api from '../../services/api'
 
@@ -65,54 +66,67 @@ const ArticleComponent = () => {
   return (
     <>
       <StatusViewer />
-      <ScrollView>
 
-        {article.map(item => (
-          <View key={item.id}>
-            <HeaderContainer>
-            
-              <BackButton 
-              onPress={() => navigation.goBack()} 
-              width="40" height="40"/>
-              <ArticleImage source={{uri: item.image}} />
+      {
 
-            </HeaderContainer>
-            <ContentContainer>
+        (!(article.length > 0)) ? (
+          <>
+            <ShimmerArticleComponent />
+          </>
+        ) : (
 
-              <TitleArticle>
-                {item.title}
-              </TitleArticle>
+          <ScrollView>
 
-              <Article>
-                {item.content}
-              </Article>
-
-              <AuthorTitle>Artigo escrito por:</AuthorTitle>
-
-              {author.map(autor => (
-                <View key={autor.id}>
-                  <AuthorContainer>
-                    <AuthorImage source={{uri: autor.image}}/>
-
-                    <AuthorData>
-
-                      <AuthorName>{autor.name}</AuthorName>
-                      <AuthorVocation>{autor.role}</AuthorVocation>
-
-                    </AuthorData>  
-                  </AuthorContainer>
-                </View>
-                ))
+            {article.map(item => (
+              <View key={item.id}>
+                <HeaderContainer>
                 
-              }
-              
+                  <BackButton 
+                  onPress={() => navigation.goBack()} 
+                  width="40" height="40"/>
+                  <ArticleImage source={{uri: item.image}} />
 
-            </ContentContainer> 
-          </View>
-        ))
-        
-        }
-      </ScrollView>
+                </HeaderContainer>
+                <ContentContainer>
+
+                  <TitleArticle>
+                    {item.title}
+                  </TitleArticle>
+
+                  <Article>
+                    {item.content}
+                  </Article>
+
+                  <AuthorTitle>Artigo escrito por:</AuthorTitle>
+
+                  {author.map(autor => (
+                    <View key={autor.id}>
+                      <AuthorContainer>
+                        <AuthorImage source={{uri: autor.image}}/>
+
+                        <AuthorData>
+
+                          <AuthorName>{autor.name}</AuthorName>
+                          <AuthorVocation>{autor.role}</AuthorVocation>
+
+                        </AuthorData>  
+                      </AuthorContainer>
+                    </View>
+                    ))
+                    
+                  }
+                  
+
+                </ContentContainer> 
+              </View>
+            ))
+            
+            }
+          </ScrollView>
+        )
+
+      }
+
     </>
   )
 }

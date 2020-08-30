@@ -33,7 +33,7 @@ const Infarto = () => {
   const [articles, setArticles] = useState<ArticleProps[]>([])
   
   useEffect(()=>{
-    // api.get('infarto').then(response => setArticles(response.data))
+    api.get('infarto').then(response => setArticles(response.data))
   }, [])
   
   function handleGoToArticlePage(artID: number, cat: string, autID: number) {

@@ -5,6 +5,8 @@ import { useNavigation } from '@react-navigation/native'
 import Logo from '../../components/Logo/index'
 import TabIcons from '../../components/TabIcons/index'
 import ArticleCard from '../../components/ArticleCards/index'
+import ShimmerArticleCards from '../../components/ShimmerArticleCards/index'
+
 
 import api from '../../services/api'
 
@@ -55,27 +57,30 @@ const Tratamento = () => {
           <List>
 
             {
-              (articles.length > 0)
-                ? undefined 
-                : <Loading source={require('../../assets/loading.gif')} /> 
-            }
-
-            {
-              articles.map(article => (
-                  <TouchableOpacity 
-                  activeOpacity={.5}
-                  onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
-                  accessible
-                  accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
-                  key={article.id}
-                  >
-                    <ArticleCard
-                    imagem={article.image}   
-                    title={article.title}
-                    summary={article.summary}
-                    />
-                  </TouchableOpacity>
-              ))  
+              (!(articles.length > 0)) ? (
+                <>
+                  <ShimmerArticleCards variant={60} />
+                  <ShimmerArticleCards variant={60} />
+                  <ShimmerArticleCards variant={60} />
+                  <ShimmerArticleCards variant={60} />
+                </>
+              ) : (
+                articles.map(article => (
+                    <TouchableOpacity 
+                    activeOpacity={.5}
+                    onPress={() => handleGoToArticlePage(article.id, article.category, article.authorId)}
+                    accessible
+                    accessibilityLabel={`Artigo: ${article.title}. ${article.summary}`}
+                    key={article.id}
+                    >
+                      <ArticleCard
+                      imagem={article.image}   
+                      title={article.title}
+                      summary={article.summary}
+                      />
+                    </TouchableOpacity>
+                ))  
+              )
             }
 
           </List>
