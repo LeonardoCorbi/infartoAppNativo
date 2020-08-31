@@ -16,15 +16,15 @@
         "svg"
       ]
     },
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "Coração Alerta",
+    "slug": "CoracaoAlerta",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0E446E"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -32,8 +32,13 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.leonardocorbi.coracaoalerta"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.leonardocorbi.coracaoalerta"
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
