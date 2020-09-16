@@ -21,6 +21,9 @@ Toda a navegação e o consumo de artigos do aplicativo foi otimizada para o con
 ![Imagem de demonstração de acessibilidade](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/accessibilityCode.png)
 ![Imagem Tela de Infarto](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/infarto.jpg)
 ![Imagem Tela de Alimentação](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/alimentacao.jpg)
+![Imagem Tela de Artigo](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/articleGaby.jpg)
+![Imagem Tela de Shimmer Artigo](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/menuOption.jpg)
+![Imagem Tela de Shimmer Artigo](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/shimmerArticle.jpg)
 
 
  
