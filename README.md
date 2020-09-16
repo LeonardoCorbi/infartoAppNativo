@@ -19,8 +19,8 @@ O aplicativo foi desenvolvido pensando também na população que possui algum t
 Toda a navegação e o consumo de artigos do aplicativo foi otimizada para o consumo de conteúdo com as tecnologias Talk Back(Android) e VoiceOver(Iphone).
 
 ![Imagem de demonstração de acessibilidade](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/accessibilityCode.png)
-![Imagem Tela de Infarto](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/infarto.jpg)
-![Imagem Tela de Alimentação](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/alimentacao.jpg)
+![Imagem Tela de Infarto](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/infarto.jpg =150x)
+![Imagem Tela de Alimentação](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/alimentacao.jpg =150x)
 
 
  
