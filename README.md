@@ -21,8 +21,11 @@ Toda a navegação e o consumo de artigos do aplicativo foi otimizada para o con
 ![Imagem de demonstração de acessibilidade](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/accessibilityCode.png)
 ![Imagem Tela de Alimentação](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/alimentacao.jpg)
 ![Imagem Tela de Artigo](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/infartoArticleGaby.jpg)
-![Imagem Tela de Shimmer Artigo](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/menuOptions.jpg)
+![Imagem Tela de IMC](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/imc.jpg)
+![Imagem Tela de Resultado de IMC](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/imcGood.jpg)
+![Imagem dos Menus](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/menuOptions.jpg)
 ![Imagem Tela de Shimmer Artigo](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/shimmerArticle.jpg)
+![Imagem Tela de Shimmer Lista](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/shimmerTratamento.jpg)
 
 
  
