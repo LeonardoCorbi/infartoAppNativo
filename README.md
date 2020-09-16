@@ -17,6 +17,8 @@ O aplicativo foi criado com o objetivo de reduzir o número de infartos ocorrido
 O aplicativo foi desenvolvido pensando também na população que possui algum tipo de deficiência visual, que hoje no Brasil já ultrapassa os 20% da população brasileira.
  
 Toda a navegação e o consumo de artigos do aplicativo foi otimizada para o consumo de conteúdo com as tecnologias Talk Back(Android) e VoiceOver(Iphone).
+
+![Imagem de demonstração de acessibilidade](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/accessibilityCode.png)
  
 # Back-end (API restfull)
 ---
