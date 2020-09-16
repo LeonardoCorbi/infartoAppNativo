@@ -20,7 +20,7 @@ Toda a navegação e o consumo de artigos do aplicativo foi otimizada para o con
 
 ![Imagem de demonstração de acessibilidade](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/accessibilityCode.png)
 ![Imagem Tela de Infarto](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/infarto.jpg =150x)
-![Imagem Tela de Alimentação](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/alimentacao.jpg =150x)
+![Imagem Tela de Alimentação](https://raw.githubusercontent.com/LeonardoCorbi/infartoAppNativo/master/src/assets/readme_assets/alimentacao.jpg | width=150)
 
 
  
